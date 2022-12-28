@@ -12,6 +12,9 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // Reset the value of the password variable to an empty string
+  password = "";
+
   // The parseInt function is used to parse the user's input and convert it to an integer
   var passwordLength = parseInt(prompt("How many characters would you like for your password?\nPassword must be a minimum of 10 and a maximum of 64 characters!"));
 
