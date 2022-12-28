@@ -54,7 +54,8 @@ function getPasswordOptions() {
     passwordOptions.hasSpecials = confirm("Would you like to include special characters in your password?");
   }
 
-    /*
+  
+  /*
   // Use a while loop to continue asking the user about the types of characters to include in the password untill at least one of the properties of the object is 'true'
   
   while ((passwordOptions.hasLowerCase === false) &&(passwordOptions.hasUpperCase === false) &&(passwordOptions.hasNumbers === false) &&(passwordOptions.hasSpecials === false)) 
@@ -69,14 +70,19 @@ function getPasswordOptions() {
 
   // Return password options
   return passwordOptions;
-}
+
+} // Function getPasswordOptions closes
+
+console.log(getPasswordOptions());
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  // Generate a random number between 0 and the length of the array
+  var index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+}
 
-} //Function getPasswordOption closes
-
-console.log(getPasswordOptions());
 
 // Function to generate password with user input
 function generatePassword() {
