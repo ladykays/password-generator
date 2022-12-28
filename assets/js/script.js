@@ -16,7 +16,8 @@ function getPasswordOptions() {
   var passwordLength = parseInt(prompt("How many characters would you like for your password?\nPassword must be a minimum of 10 and a maximum of 64 characters!"));
 
   // Validate user response to 'passwordlength' prompt
-    // isNaN function is used to validate if 'passwordLength' is not a number
+  while (isNaN(passwordLength) || passwordLength < 10 || passwordLength > 64) {
+    // isNaN is used to validate if 'passwordLength' is not a number
     if (isNaN(passwordLength)) {
       alert("Password length must be a NUMBER between 10 and 64!");
     }
@@ -25,6 +26,8 @@ function getPasswordOptions() {
       alert("Password must be a minimum of 10 and a maximum of 64 characters long!");
       return;
     }
+    passwordLength = parseInt(prompt("Please enter a number between 10 and 64!"));
+  }
 
   // Create an object to store the password options indicated by the user. Properties have been set t false cos none of them has been selected by the user
   var passwordOptions = {
@@ -73,7 +76,7 @@ function getPasswordOptions() {
 
 } // Function getPasswordOptions closes
 
-console.log(getPasswordOptions());
+//console.log(getPasswordOptions());
 
 
 // Function for getting a random element from an array
