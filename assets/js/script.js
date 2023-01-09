@@ -32,7 +32,7 @@ function getPasswordOptions() {
     passwordLength = parseInt(prompt("Please enter a number between 10 and 64!"));
   }
 
-  // Create an object to store the password options indicated by the user. Properties have been set t false cos none of them has been selected by the user
+  // Create an object to store the password options indicated by the user. Properties have been set to false cos none of them has been selected by the user
   var passwordOptions = {
     passwordLength: passwordLength,
     hasLowerCase: false,
@@ -41,45 +41,30 @@ function getPasswordOptions() {
     hasSpecials: false
   };
 
-  // Confirm characters to include
-  passwordOptions.hasLowerCase = confirm("Would you like to include lowercase characters in your password?");
-  passwordOptions.hasUpperCase = confirm("Would you like to include uppercase characters in your password?");
-  passwordOptions.hasNumbers = confirm("Would you like to include numerical characters in your password?");
-  passwordOptions.hasSpecials = confirm("Would you like to include special characters in your password?");
+  // Function to confirm character options to include
+  function getCharacters () {
+    passwordOptions.hasLowerCase = confirm("Would you like to include lowercase characters in your password?");
+    passwordOptions.hasUpperCase = confirm("Would you like to include uppercase characters in your password?");
+    passwordOptions.hasNumbers = confirm("Would you like to include numerical characters in your password?");
+    passwordOptions.hasSpecials = confirm("Would you like to include special characters in your password?");
+  } // Function getCharacters closes
+
+  getCharacters();
 
   // Validate user response to password options 
    // Use a for loop to continue asking the user about the types of characters to include in the password until at least one of the properties of the object is 'true'
    for (;;) { // The three parts of the loop are left empty  so the loop will run indefinitely until a specific condition is met
-    if (passwordOptions.hasLowerCase || passwordOptions.hasUpperCase || passwordOptions.hasNumbers || passwordOptions.hasSpecials) {
+    if (passwordOptions.hasLowerCase || passwordOptions.hasUpperCase || passwordOptions.hasNumbers || passwordOptions.hasSpecials) {  
       break;
     }
     alert("You must select at least one character type to include in your password!");
-    passwordOptions.hasLowerCase = confirm("Would you like to include lowercase characters in your password?");
-    passwordOptions.hasUpperCase = confirm("Would you like to include uppercase characters in your password?");
-    passwordOptions.hasNumbers = confirm("Would you like to include numerical characters in your password?");
-    passwordOptions.hasSpecials = confirm("Would you like to include special characters in your password?");
+    getCharacters();
   }
-
-  
-  /*
-  // Use a while loop to continue asking the user about the types of characters to include in the password untill at least one of the properties of the object is 'true'
-  
-  while ((passwordOptions.hasLowerCase === false) &&(passwordOptions.hasUpperCase === false) &&(passwordOptions.hasNumbers === false) &&(passwordOptions.hasSpecials === false)) 
-  {
-    alert("You must select at leat one character type to include in your password!");
-    passwordOptions.hasLowerCase = confirm("Would you like to include lowercase characters in your password?");
-    passwordOptions.hasUpperCase = confirm("Would you like to include uppercase characters in your password?");
-    passwordOptions.hasNumbers = confirm("Would you like to include numerical characters in your password?");
-    passwordOptions.hasSpecials = confirm("Would you like to include special characters in your password?");
-  }
-  */
 
   // Return password options
   return passwordOptions;
 
 } // Function getPasswordOptions closes
-
-//console.log(getPasswordOptions());
 
 
 // Function for getting a random element from an array
@@ -119,7 +104,7 @@ function generatePassword() {
 
   // Loop throught the passwordLength specified by the user
   for (var i = 0; i < options.passwordLength; i++) {
-    // Get a random characcter from the selected characters array
+    // Get a random character from the selected characters array
     var character = getRandom(selectedCharacters); // Calls the getRandom function and passes it the 'selectedCharacters' array as an arguement
 
     // Add the character variable to the password string
@@ -144,3 +129,17 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
+// To get a data attribute through the dataset object, get the property by the part of the attribute name after data- (note that dashes are converted to camelCase).
+/* 
+Eg:
+<article
+  id="electric-cars"
+  data-columns="3"
+  data-index-number="12314"
+  data-parent="cars">
+  …
+</article>
+article.dataset.columns = 5
+ */
