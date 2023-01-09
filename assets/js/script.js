@@ -129,17 +129,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-// To get a data attribute through the dataset object, get the property by the part of the attribute name after data- (note that dashes are converted to camelCase).
-/* 
-Eg:
-<article
-  id="electric-cars"
-  data-columns="3"
-  data-index-number="12314"
-  data-parent="cars">
-  …
-</article>
-article.dataset.columns = 5
- */
